@@ -46,10 +46,4 @@ export const awards: Award[] = [
     context: "RegionalHacks 2025",
     date: "2025-10",
   },
-  {
-    id: "deans-list",
-    title: "Dean's List",
-    context: "Faculty of Engineering",
-    date: "2025-05",
-  },
 ];

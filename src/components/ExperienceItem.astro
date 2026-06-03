@@ -1,0 +1,64 @@
+---
+import type { ExperienceEntry } from "@/data/experience";
+import { formatMonthYear } from "@/lib/format";
+
+interface Props {
+  entry: ExperienceEntry;
+}
+const { entry } = Astro.props;
+const fmt = (d: string) => (d === "Present" ? "Present" : formatMonthYear(d));
+---
+
+<article class="xp glass">
+  <header class="xp-head">
+    <div>
+      <h3 class="xp-role">{entry.role}</h3>
+      <p class="xp-org">
+        {entry.org}{entry.location && <span> · {entry.location}</span>}
+      </p>
+    </div>
+    <time class="xp-dates">{fmt(entry.start)} – {fmt(entry.end)}</time>
+  </header>
+  <ul class="xp-bullets">
+    {entry.bullets.map((b) => <li>{b}</li>)}
+  </ul>
+</article>
+
+<style>
+  .xp {
+    padding: var(--s-5);
+    border-radius: var(--r-md);
+  }
+  .xp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+  }
+  .xp-role {
+    font-size: var(--fs-h3);
+  }
+  .xp-org {
+    color: var(--c-text-muted);
+    font-size: var(--fs-small);
+    margin-top: 0.15rem;
+  }
+  .xp-dates {
+    color: var(--c-text-muted);
+    font-size: var(--fs-small);
+    white-space: nowrap;
+  }
+  .xp-bullets {
+    margin: var(--s-3) 0 0;
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--c-text-muted);
+    font-size: var(--fs-small);
+    line-height: 1.55;
+  }
+  .xp-bullets li::marker {
+    color: var(--c-cyan);
+  }
+</style>
