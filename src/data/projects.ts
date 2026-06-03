@@ -42,7 +42,7 @@ export const projects: Project[] = [
     techStack: ["Astro", "React", "Three.js", "MapLibre GL", "TypeScript"],
     date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/portfolio",
-    liveUrl: "https://dominicgodfrey.com",
+    liveUrl: "https://dsolgodfrey.com",
     image: "/images/project-portfolio.svg",
     featured: true,
   },
