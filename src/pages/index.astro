@@ -14,10 +14,10 @@ import SocialLinks from "@/components/SocialLinks.astro";
       <div class="hero-body">
         <div class="hero-photo">
           <img
-            src="/images/profile-placeholder.svg"
+            src="/images/profile.jpg"
             alt="Dominic Sol Godfrey"
-            width="220"
-            height="280"
+            width="725"
+            height="772"
           />
         </div>
 
@@ -87,6 +87,8 @@ import SocialLinks from "@/components/SocialLinks.astro";
     object-fit: cover;
     border-radius: var(--r-lg);
     border: 1px solid var(--glass-border);
+    /* Lift the low-light photo so it pops against the light glass card. */
+    filter: brightness(1.32) contrast(1.08) saturate(1.06);
   }
 
   /* about pinned to top, socials pinned to bottom (space-between handles it). */
