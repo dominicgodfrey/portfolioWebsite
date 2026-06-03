@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import { ClientRouter } from "astro:transitions";
 import Nav from "@/components/Nav.astro";
 import GridBackground from "@/components/react/GridBackground.tsx";
 
@@ -25,6 +26,9 @@ const {
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <!-- Client-side routing so navigations swap content without a full reload,
+         letting the background island persist across pages. -->
+    <ClientRouter />
   </head>
   <body class={lockViewport ? "is-locked" : ""}>
     <!-- SVG displacement filter used by .glass as a backdrop-filter to refract
@@ -63,8 +67,10 @@ const {
     </svg>
 
     <!-- WebGL grid background island. Hydrates when idle so it never blocks
-         first paint; falls back to the body's static gradient. -->
-    <GridBackground client:idle />
+         first paint; falls back to the body's static gradient. transition:persist
+         keeps this exact node (its live WebGL context + animation clock) across
+         page navigations, so the grid never reloads/resets. -->
+    <GridBackground client:idle transition:persist="grid-background" />
 
     <Nav />
 
