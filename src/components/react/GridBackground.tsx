@@ -83,16 +83,17 @@ const fragmentShader = /* glsl */ `
     // unchanged, only the alpha eases off as lines recede.
     float depthFade = mix(1.0, 0.6, clamp(vDepth / 55.0, 0.0, 1.0));
 
-    // Warm shimmer keyed to height: tint ranges dark red → dark purple by
-    // elevation (no cyan), over a soft warm-mauve base.
+    // Warm tint keyed to height: crimson red in the valleys → eggplant purple
+    // on the peaks. Sits 75% of the way from the vibrant scheme toward the deep
+    // one — dark and moody but not too dark.
     float hgt = clamp(vHeight * 0.5 + 0.5, 0.0, 1.0);
-    vec3 warmRed = vec3(0.88, 0.11, 0.28);
-    vec3 warmPurple = vec3(0.58, 0.20, 0.92);
-    vec3 tint = mix(warmRed, warmPurple, smoothstep(0.0, 1.0, hgt));
-    vec3 baseMauve = vec3(0.60, 0.54, 0.64);
-    vec3 lineCol = mix(baseMauve, tint, 0.5);
+    vec3 crimson = vec3(0.52, 0.058, 0.153);   // crimson red
+    vec3 eggplant = vec3(0.325, 0.118, 0.455); // eggplant purple
+    vec3 tint = mix(crimson, eggplant, smoothstep(0.0, 1.0, hgt));
+    vec3 baseDark = vec3(0.375, 0.30, 0.385);
+    vec3 lineCol = mix(baseDark, tint, 0.76);
 
-    float a = line * farFade * depthFade * 0.85;
+    float a = line * farFade * depthFade * 0.92;
     gl_FragColor = vec4(lineCol, a);
   }
 `;
