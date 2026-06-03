@@ -87,8 +87,9 @@ import SocialLinks from "@/components/SocialLinks.astro";
     object-fit: cover;
     border-radius: var(--r-lg);
     border: 1px solid var(--glass-border);
-    /* Lift the low-light photo so it pops against the light glass card. */
-    filter: brightness(1.32) contrast(1.08) saturate(1.06);
+    /* Tone curve (gamma lift + highlight rolloff) is baked into the image;
+       here just a touch of saturation for colour pop. */
+    filter: saturate(1.08);
   }
 
   /* about pinned to top, socials pinned to bottom (space-between handles it). */
