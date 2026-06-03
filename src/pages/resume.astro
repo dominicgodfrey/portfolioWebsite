@@ -1,0 +1,158 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import { projects } from "@/data/projects";
+import { certifications, awards } from "@/data/certifications";
+import { formatMonthYear } from "@/lib/format";
+---
+
+<BaseLayout title="Resume · Dominic Sol Godfrey">
+  <div class="page">
+    <header class="page-head reveal">
+      <p class="eyebrow">Technical work</p>
+      <h1>Resume</h1>
+      <p class="lede">
+        Selected projects, certifications, and recognition. Live demos and source
+        where available.
+      </p>
+    </header>
+
+    <!-- Projects -->
+    <section class="section" aria-labelledby="projects-h">
+      <h2 id="projects-h" class="section-title">Projects</h2>
+      <div class="grid grid-projects">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </section>
+
+    <!-- Certifications + Awards -->
+    <section class="section two-col" aria-label="Certifications and awards">
+      <div>
+        <h2 class="section-title">Certifications</h2>
+        <ul class="list">
+          {
+            certifications.map((c) => (
+              <li class="row glass">
+                <div>
+                  <p class="row-title">{c.title}</p>
+                  <p class="row-sub">{c.issuer}</p>
+                </div>
+                <div class="row-meta">
+                  <time datetime={c.date}>{formatMonthYear(c.date)}</time>
+                  {c.credentialUrl && (
+                    <a
+                      href={c.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Verify ↗
+                    </a>
+                  )}
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="section-title">Awards</h2>
+        <ul class="list">
+          {
+            awards.map((a) => (
+              <li class="row glass">
+                <div>
+                  <p class="row-title">{a.title}</p>
+                  <p class="row-sub">{a.context}</p>
+                </div>
+                <div class="row-meta">
+                  <time datetime={a.date}>{formatMonthYear(a.date)}</time>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: calc(var(--nav-h) + var(--s-6));
+    padding-bottom: var(--s-8);
+  }
+
+  .page-head {
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding: var(--s-6) var(--s-5) var(--s-2);
+  }
+  .page-head h1 {
+    font-size: var(--fs-display);
+    margin: 0.3rem 0 0.6rem;
+  }
+  .lede {
+    color: var(--c-text-muted);
+    max-width: 52ch;
+  }
+
+  .section-title {
+    font-size: var(--fs-h2);
+    margin-bottom: var(--s-5);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--s-5);
+  }
+  .grid-projects {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+  }
+  @media (max-width: 820px) {
+    .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .list {
+    display: grid;
+    gap: var(--s-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    padding: var(--s-4) var(--s-5);
+    border-radius: var(--r-md);
+  }
+  .row-title {
+    font-weight: 500;
+  }
+  .row-sub {
+    font-size: var(--fs-small);
+    color: var(--c-text-muted);
+  }
+  .row-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    font-size: var(--fs-small);
+    color: var(--c-text-muted);
+    white-space: nowrap;
+  }
+  .row-meta a {
+    color: var(--c-cyan);
+  }
+</style>

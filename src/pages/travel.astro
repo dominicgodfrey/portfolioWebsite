@@ -1,0 +1,228 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TravelMap from "@/components/react/TravelMap.tsx";
+import PhotoGallery from "@/components/react/PhotoGallery.tsx";
+import { visitedCountries } from "@/data/visited";
+import { photos } from "@/data/photos";
+---
+
+<BaseLayout title="Travel · Dominic Sol Godfrey">
+  <div class="page">
+    <header class="page-head reveal">
+      <p class="eyebrow">Travel & photography</p>
+      <h1>On the map</h1>
+      <p class="lede">
+        {photos.length} photos across {visitedCountries.length} countries. Click anywhere
+        on the map to jump to the nearest shot, click a pin, or pick a photo from
+        the gallery.
+      </p>
+    </header>
+
+    <section class="travel-layout section">
+      <div class="map-wrap glass">
+        <TravelMap client:only="react" />
+      </div>
+      <div class="gallery-wrap">
+        <PhotoGallery client:only="react" />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: calc(var(--nav-h) + var(--s-6));
+    padding-bottom: var(--s-8);
+  }
+  .page-head {
+    max-width: var(--content-max);
+    margin-inline: auto;
+    padding: var(--s-6) var(--s-5) var(--s-2);
+  }
+  .page-head h1 {
+    font-size: var(--fs-display);
+    margin: 0.3rem 0 0.6rem;
+  }
+  .lede {
+    color: var(--c-text-muted);
+    max-width: 56ch;
+  }
+
+  .travel-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--s-5);
+    align-items: start;
+  }
+  .map-wrap {
+    height: clamp(440px, 72vh, 760px);
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    position: sticky;
+    top: calc(var(--nav-h) + var(--s-4));
+  }
+  .gallery-wrap {
+    max-height: clamp(440px, 72vh, 760px);
+    overflow-y: auto;
+    padding-right: var(--s-2);
+  }
+
+  @media (max-width: 880px) {
+    .travel-layout {
+      grid-template-columns: 1fr;
+    }
+    .map-wrap {
+      position: static;
+      height: 56vh;
+    }
+    .gallery-wrap {
+      max-height: none;
+    }
+  }
+</style>
+
+<!-- Global styles for the React islands' DOM + MapLibre's injected elements. -->
+<style is:global>
+  .travel-map {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--s-3);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .thumb {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    cursor: pointer;
+    aspect-ratio: 4 / 3;
+    transition:
+      transform var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+  .thumb:hover {
+    transform: translateY(-3px);
+  }
+  .thumb.is-active {
+    border-color: var(--c-cyan);
+    box-shadow: 0 0 0 1px var(--c-cyan);
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .thumb-meta {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    padding: 0.6rem;
+    text-align: left;
+    background: linear-gradient(transparent, rgba(5, 5, 12, 0.85));
+  }
+  .thumb-place {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--c-text);
+  }
+  .thumb-country {
+    font-size: 0.75rem;
+    color: var(--c-text-muted);
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    padding: var(--s-5);
+    background: rgba(30, 34, 66, 0.36);
+    backdrop-filter: blur(6px);
+  }
+  .lightbox-panel {
+    position: relative;
+    max-width: 560px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+  }
+  .lightbox-panel img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .lightbox-info {
+    padding: var(--s-5);
+  }
+  .lightbox-info h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+  }
+  .lightbox-country {
+    font-size: var(--fs-small);
+    color: var(--c-cyan);
+    margin: 0.2rem 0 0.6rem;
+  }
+  .lightbox-caption {
+    color: var(--c-text-muted);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: var(--s-3);
+    right: var(--s-3);
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--r-pill);
+    background: rgba(5, 5, 12, 0.6);
+    border: 1px solid var(--glass-border);
+    color: var(--c-text);
+    cursor: pointer;
+  }
+
+  /* MapLibre popup + controls themed to match the glass aesthetic. */
+  .map-popup .maplibregl-popup-content {
+    background: var(--c-surface);
+    color: var(--c-text);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--r-md);
+    padding: 0.6rem 0.8rem;
+    font-family: var(--font-body);
+  }
+  .map-popup .maplibregl-popup-content strong {
+    display: block;
+    font-size: var(--fs-small);
+  }
+  .map-popup .maplibregl-popup-content span {
+    font-size: 0.75rem;
+    color: var(--c-text-muted);
+  }
+  .map-popup .maplibregl-popup-tip {
+    border-top-color: var(--c-surface) !important;
+    border-bottom-color: var(--c-surface) !important;
+  }
+  .maplibregl-ctrl-group {
+    background: var(--c-surface) !important;
+    border: 1px solid var(--glass-border) !important;
+  }
+  .maplibregl-ctrl-group button + button {
+    border-top: 1px solid var(--glass-border) !important;
+  }
+</style>

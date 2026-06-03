@@ -1,0 +1,87 @@
+/* ===========================================================================
+   Design tokens — the single source of truth for the visual system.
+   Restraint is the brief: tight palette, two neon accents, one glass recipe,
+   one radius scale. Everything else composes from these.
+   ========================================================================= */
+
+:root {
+  /* --- Palette (light / pearlescent, ~5 + two accents) -------------------- */
+  --c-base: #eceaf4; /* pearl page background */
+  --c-surface: #ffffff; /* elevated solid surface (popups, controls) */
+  --c-surface-2: #e7e7f1; /* secondary surface (chips, insets) */
+  --c-text: #1b1d2e; /* dark slate primary text */
+  --c-text-muted: #5b6076; /* muted secondary text */
+
+  /* Warm scheme: vibrant red + vibrant purple (names kept for minimal churn). */
+  --c-cyan: #e11d48; /* accent 1 — vibrant red */
+  --c-violet: #9333ea; /* accent 2 — vibrant purple */
+  /* A single accent gradient reused for glows / focus / highlights. */
+  --grad-accent: linear-gradient(120deg, #e11d48, #9333ea);
+
+  /* --- Glass recipe (one recipe, reused everywhere) ----------------------- */
+  /* Light frosted glass with a beveled, 3D curved edge. The fill is a top-lit
+     gradient; the shadow stack combines a soft drop with inset highlight (top-
+     left) + inset shadow (bottom-right) to read as a rounded, raised bezel. */
+  --glass-fill: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.62),
+    rgba(255, 255, 255, 0.34)
+  );
+  --glass-fill-strong: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.82),
+    rgba(255, 255, 255, 0.55)
+  );
+  --glass-bg: rgba(255, 255, 255, 0.5); /* flat translucent fill (buttons) */
+  --glass-bg-strong: rgba(255, 255, 255, 0.66);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  /* Refract the backdrop (url) then a light blur/lift — low blur keeps the
+     warped grid readable through the glass, which sells the effect. */
+  --glass-backdrop: url(#glass-warp) blur(6px) saturate(185%) brightness(1.07);
+  --glass-blur: blur(7px) saturate(185%) brightness(1.07); /* fallback, no url */
+  --glass-shadow: 0 16px 50px rgba(40, 46, 92, 0.22);
+  /* beveled edge: bright top-left inset highlight + cool bottom-right inset
+     shadow, plus an inner light ring — a distinct, curved frosted bezel */
+  --glass-inset:
+    inset 2.5px 2.5px 4px rgba(255, 255, 255, 0.95),
+    inset -2.5px -3px 6px rgba(120, 132, 184, 0.38),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+
+  /* --- Radius scale (large, Samsung-edge feel) ---------------------------- */
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 30px;
+  --r-xl: 40px;
+  --r-pill: 999px;
+
+  /* --- Spacing scale ------------------------------------------------------ */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+
+  /* --- Type --------------------------------------------------------------- */
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --font-body: "Inter Variable", system-ui, sans-serif;
+
+  /* Fluid type scale (clamp: min, preferred, max) */
+  --fs-display: clamp(2.75rem, 7vw, 5rem);
+  --fs-h1: clamp(2rem, 4vw, 3rem);
+  --fs-h2: clamp(1.5rem, 2.6vw, 2rem);
+  --fs-h3: clamp(1.15rem, 1.8vw, 1.4rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --fs-small: 0.875rem;
+
+  /* --- Motion ------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+
+  /* --- Layout ------------------------------------------------------------- */
+  --content-max: 1100px;
+  --nav-h: 64px;
+}

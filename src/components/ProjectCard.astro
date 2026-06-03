@@ -1,0 +1,148 @@
+---
+import { siGithub } from "simple-icons";
+import type { Project } from "@/data/projects";
+import { formatMonthYear } from "@/lib/format";
+
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<article class="card glass glass-refract">
+  {
+    project.image && (
+      <div class="card-media">
+        <img src={project.image} alt={`${project.title} cover`} loading="lazy" />
+      </div>
+    )
+  }
+
+  <div class="card-body">
+    <header class="card-head">
+      <h3>{project.title}</h3>
+      <time datetime={project.date}>{formatMonthYear(project.date)}</time>
+    </header>
+
+    <p class="card-desc">{project.description}</p>
+
+    <ul class="card-stack" aria-label="Tech stack">
+      {project.techStack.map((t) => <li class="chip">{t}</li>)}
+    </ul>
+
+    <div class="card-links">
+      {
+        project.liveUrl && (
+          <a
+            class="btn btn-primary"
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Live demo
+          </a>
+        )
+      }
+      {
+        project.videoUrl && !project.liveUrl && (
+          <a
+            class="btn"
+            href={project.videoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Watch demo
+          </a>
+        )
+      }
+      {
+        project.githubUrl && (
+          <a
+            class="btn"
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+              <path d={siGithub.path} fill="currentColor" />
+            </svg>
+            Code
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    transition:
+      transform var(--dur-med) var(--ease-out),
+      border-color var(--dur-med) var(--ease-out);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(168, 85, 247, 0.4);
+  }
+
+  .card-media {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-bottom: 1px solid var(--glass-border);
+  }
+  .card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-3);
+    padding: var(--s-5);
+    flex: 1;
+  }
+
+  .card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-3);
+  }
+  .card-head h3 {
+    font-size: var(--fs-h3);
+  }
+  .card-head time {
+    font-size: var(--fs-small);
+    color: var(--c-text-muted);
+    white-space: nowrap;
+  }
+
+  .card-desc {
+    color: var(--c-text-muted);
+    font-size: var(--fs-small);
+    line-height: 1.6;
+  }
+
+  .card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    margin-top: auto;
+    padding-top: var(--s-2);
+  }
+</style>

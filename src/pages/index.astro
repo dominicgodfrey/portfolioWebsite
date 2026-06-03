@@ -1,0 +1,138 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SocialLinks from "@/components/SocialLinks.astro";
+---
+
+<BaseLayout lockViewport={true}>
+  <section class="hero">
+    <article class="hero-card glass glass-refract reveal">
+      <!-- Name spans the full width across the top, left to right. -->
+      <h1 class="hero-name">Dominic Sol Godfrey</h1>
+
+      <!-- Photo (left) stretches to the content height so its top lines up with
+           the about text and its bottom lines up with the social icons. -->
+      <div class="hero-body">
+        <div class="hero-photo">
+          <img
+            src="/images/profile-placeholder.svg"
+            alt="Dominic Sol Godfrey"
+            width="220"
+            height="280"
+          />
+        </div>
+
+        <div class="hero-content">
+          <p class="hero-about">
+            Full-Stack Software Engineer seeking all experience that this world
+            has to offer in all forms of its existence.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/resume">View my work</a>
+            <a class="btn" href="/travel">Explore the map</a>
+          </div>
+
+          <div class="hero-socials">
+            <SocialLinks />
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: var(--s-5);
+  }
+
+  .hero-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-5);
+    max-width: 720px;
+    width: 100%;
+    padding: clamp(1.5rem, 3.5vw, 2.6rem);
+    border-radius: var(--r-xl);
+    /* Query container so the name can be sized to the card, not the viewport. */
+    container-type: inline-size;
+  }
+
+  .hero-name {
+    /* Sized in container-inline units so the name always spans the full card
+       width on one line, regardless of viewport. */
+    font-size: 8.8cqi;
+    line-height: 1.05;
+    white-space: nowrap;
+  }
+
+  .hero-body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-6);
+    align-items: stretch;
+  }
+
+  /* Photo fills the column height so it spans top-of-about → social icons. */
+  .hero-photo {
+    display: flex;
+  }
+  .hero-photo img {
+    width: clamp(150px, 20vw, 185px);
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--glass-border);
+  }
+
+  /* about pinned to top, socials pinned to bottom (space-between handles it). */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--s-5);
+  }
+
+  .hero-about {
+    color: var(--c-text-muted);
+    max-width: 46ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+  /* Single-viewport on desktop; allow graceful stacking/scroll on phones. */
+  @media (max-width: 720px) {
+    .hero {
+      height: auto;
+      min-height: 100dvh;
+      padding-top: calc(var(--nav-h) + var(--s-6));
+    }
+    .hero-body {
+      grid-template-columns: 1fr;
+      gap: var(--s-5);
+      text-align: center;
+    }
+    .hero-photo {
+      justify-self: center;
+    }
+    .hero-photo img {
+      width: clamp(150px, 50vw, 200px);
+      height: auto;
+      aspect-ratio: 11 / 14;
+    }
+    .hero-about {
+      margin-inline: auto;
+    }
+    .hero-actions,
+    .hero-socials :global(.socials) {
+      justify-content: center;
+    }
+  }
+</style>

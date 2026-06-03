@@ -1,0 +1,88 @@
+---
+import "@/styles/global.css";
+import Nav from "@/components/Nav.astro";
+import GridBackground from "@/components/react/GridBackground.tsx";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Home uses a fixed, no-scroll viewport; inner pages scroll normally. */
+  lockViewport?: boolean;
+}
+
+const {
+  title = "Dominic Sol Godfrey",
+  description = "Developer & photographer — technical portfolio and travel galleries.",
+  lockViewport = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class={lockViewport ? "is-locked" : ""}>
+    <!-- SVG displacement filter used by .glass as a backdrop-filter to refract
+         (warp) the grid behind each panel — the "thick glass" effect. Gentle,
+         low-frequency turbulence = smooth lens-like warping, not noise. -->
+    <svg
+      width="0"
+      height="0"
+      aria-hidden="true"
+      style="position:absolute;pointer-events:none"
+    >
+      <filter
+        id="glass-warp"
+        x="-20%"
+        y="-20%"
+        width="140%"
+        height="140%"
+        color-interpolation-filters="sRGB"
+      >
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.011 0.013"
+          numOctaves="2"
+          seed="7"
+          result="noise"
+        />
+        <feGaussianBlur in="noise" stdDeviation="1.1" result="soft" />
+        <feDisplacementMap
+          in="SourceGraphic"
+          in2="soft"
+          scale="30"
+          xChannelSelector="R"
+          yChannelSelector="G"
+        />
+      </filter>
+    </svg>
+
+    <!-- WebGL grid background island. Hydrates when idle so it never blocks
+         first paint; falls back to the body's static gradient. -->
+    <GridBackground client:idle />
+
+    <Nav />
+
+    <main>
+      <slot />
+    </main>
+
+    <style>
+      /* Home page: fill exactly one viewport, no page scroll. */
+      body.is-locked {
+        height: 100dvh;
+        overflow: hidden;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </body>
+</html>

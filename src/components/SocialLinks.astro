@@ -1,0 +1,52 @@
+---
+import { siGithub, siSpotify, siLinkedin } from "simple-icons";
+import ContactForm from "@/components/react/ContactForm.tsx";
+
+// Brand links. Replace the URLs with the real handles.
+const socials = [
+  {
+    name: "GitHub",
+    url: "https://github.com/dominicgodfrey",
+    icon: siGithub,
+  },
+  {
+    name: "Spotify",
+    url: "https://open.spotify.com/user/llamabobo?si=ccba1068a0794cb3",
+    icon: siSpotify,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/dominic-godfrey/",
+    icon: siLinkedin,
+  },
+];
+---
+
+<div class="socials">
+  {
+    socials.map((s) => (
+      <a
+        class="social glass"
+        href={s.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={s.name}
+      >
+        <svg role="img" viewBox="0 0 24 24" aria-hidden="true">
+          <path d={s.icon.path} fill="currentColor" />
+        </svg>
+      </a>
+    ))
+  }
+  <!-- Contact opens a modal form (React island). -->
+  <ContactForm client:idle />
+</div>
+
+<style>
+  .socials {
+    display: flex;
+    gap: var(--s-3);
+    align-items: center;
+  }
+  /* .social button styling is global (shared with the contact island). */
+</style>

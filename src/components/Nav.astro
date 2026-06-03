@@ -1,0 +1,71 @@
+---
+// Floating glass pill nav. Highlights the active route.
+const path = Astro.url.pathname;
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/resume", label: "Resume" },
+  { href: "/travel", label: "Travel" },
+];
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<nav class="nav glass glass-refract" aria-label="Primary">
+  <ul>
+    {
+      links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class={isActive(l.href) ? "active" : ""}
+            aria-current={isActive(l.href) ? "page" : undefined}
+          >
+            {l.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: var(--s-4);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 50;
+    padding: 0.35rem;
+    border-radius: var(--r-pill);
+  }
+
+  ul {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    font-family: var(--font-body);
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--c-text-muted);
+    border-radius: var(--r-pill);
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      background var(--dur-fast) var(--ease-out);
+  }
+
+  a:hover {
+    color: var(--c-text);
+  }
+
+  a.active {
+    color: var(--c-text);
+    background: var(--glass-bg-strong);
+  }
+</style>
