@@ -24,11 +24,11 @@ import SocialLinks from "@/components/SocialLinks.astro";
         <div class="hero-content">
           <p class="hero-about">
             Full-Stack Software Engineer seeking all experience that this world
-            has to offer in all forms of its existence.
+            has to offer.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="/resume">View my work</a>
+            <a class="btn" href="/resume">View my work</a>
             <a class="btn" href="/travel">Explore the map</a>
           </div>
 
@@ -53,8 +53,9 @@ import SocialLinks from "@/components/SocialLinks.astro";
     display: flex;
     flex-direction: column;
     gap: var(--s-5);
-    max-width: 720px;
-    width: 100%;
+    /* Narrower box; the name fills it (equal gaps L/R) and it stays centered. */
+    width: min(100%, 600px);
+    margin-inline: auto;
     padding: clamp(1.5rem, 3.5vw, 2.6rem);
     border-radius: var(--r-xl);
     /* Query container so the name can be sized to the card, not the viewport. */

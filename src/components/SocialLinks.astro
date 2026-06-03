@@ -1,5 +1,5 @@
 ---
-import { siGithub, siSpotify, siLinkedin } from "simple-icons";
+import { siGithub, siSpotify, siLinkedin, siDiscord } from "simple-icons";
 import ContactForm from "@/components/react/ContactForm.tsx";
 
 // Brand links. Replace the URLs with the real handles.
@@ -40,6 +40,19 @@ const socials = [
   }
   <!-- Contact opens a modal form (React island). -->
   <ContactForm client:idle />
+
+  <!-- Discord sits to the right of the email/contact icon. -->
+  <a
+    class="social glass"
+    href="https://discord.gg/BSP5nUQX"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Discord"
+  >
+    <svg role="img" viewBox="0 0 24 24" aria-hidden="true">
+      <path d={siDiscord.path} fill="currentColor" />
+    </svg>
+  </a>
 </div>
 
 <style>
