@@ -161,7 +161,7 @@ export default function ContactForm() {
           .contact-panel {
             position: relative;
             padding: 2rem;
-            border-radius: var(--r-lg);
+            border-radius: var(--r-card);
             color: var(--c-text);
           }
           .contact-close {

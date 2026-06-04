@@ -48,7 +48,11 @@ import { formatMonthYear } from "@/lib/format";
                 <p class="row-sub">{c.issuer}</p>
               </div>
               <div class="row-meta">
-                <time datetime={c.date}>{formatMonthYear(c.date)}</time>
+                {c.date ? (
+                  <time datetime={c.date}>{formatMonthYear(c.date)}</time>
+                ) : (
+                  <span class="row-status">In progress</span>
+                )}
                 {c.credentialUrl && (
                   <a href={c.credentialUrl} target="_blank" rel="noopener noreferrer">
                     Verify ↗
@@ -208,7 +212,7 @@ import { formatMonthYear } from "@/lib/format";
     justify-content: space-between;
     gap: var(--s-4);
     padding: var(--s-4) var(--s-5);
-    border-radius: var(--r-md);
+    border-radius: var(--r-card);
   }
   .row-title {
     font-weight: 500;
@@ -229,6 +233,10 @@ import { formatMonthYear } from "@/lib/format";
   .row-meta a {
     color: var(--c-cyan);
   }
+  .row-status {
+    font-style: italic;
+    color: var(--c-violet);
+  }
   .badge {
     display: inline-block;
     margin-left: 0.4rem;
@@ -244,7 +252,7 @@ import { formatMonthYear } from "@/lib/format";
   /* Skills + coursework panels. */
   .panel {
     padding: var(--s-5);
-    border-radius: var(--r-md);
+    border-radius: var(--r-card);
     display: grid;
     gap: var(--s-5);
   }

@@ -59,7 +59,7 @@ import SocialLinks from "@/components/SocialLinks.astro";
        margin rather than transform, which the .reveal animation would override). */
     margin: 0 auto 10vh;
     padding: clamp(1.5rem, 3.5vw, 2.6rem);
-    border-radius: var(--r-xl);
+    border-radius: var(--r-card);
     /* Query container so the name can be sized to the card, not the viewport. */
     container-type: inline-size;
   }
@@ -70,6 +70,7 @@ import SocialLinks from "@/components/SocialLinks.astro";
     font-size: 8.8cqi;
     line-height: 1.05;
     white-space: nowrap;
+    text-align: center;
   }
 
   .hero-body {
@@ -87,7 +88,7 @@ import SocialLinks from "@/components/SocialLinks.astro";
     width: clamp(150px, 20vw, 185px);
     height: 100%;
     object-fit: cover;
-    border-radius: var(--r-lg);
+    border-radius: var(--r-card);
     border: 1px solid var(--glass-border);
     /* Tone curve (gamma lift + highlight rolloff) is baked into the image;
        here a saturation boost for colour pop. */

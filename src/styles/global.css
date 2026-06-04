@@ -83,7 +83,7 @@ img {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-card);
   box-shadow: var(--glass-shadow), var(--glass-inset);
 }
 

@@ -1,13 +1,14 @@
-/** Placeholder relevant coursework. Replace with your actual courses. */
+/** Relevant coursework. */
 
 export const coursework: string[] = [
-  "Data Structures & Algorithms",
+  "NVIDIA Deep Learning (Neural Networks)",
+  "Data Structures and Algorithms",
   "Operating Systems",
-  "Computer Networks",
-  "Databases",
-  "Machine Learning",
-  "Software Engineering",
-  "Computer Architecture",
-  "Discrete Mathematics",
   "Linear Algebra",
+  "Machine Learning",
+  "Computer Security",
+  "Computer Networking",
+  "Discrete Mathematics",
+  "Probability and Statistics",
+  "Web Development",
 ];

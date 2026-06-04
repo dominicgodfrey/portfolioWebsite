@@ -6,7 +6,14 @@ interface Props {
   entry: ExperienceEntry;
 }
 const { entry } = Astro.props;
-const fmt = (d: string) => (d === "Present" ? "Present" : formatMonthYear(d));
+// "Present" and free-form labels (e.g. "Expected Graduation Spring 2027") pass
+// through untouched; only strict YYYY-MM strings get month-name formatting.
+const fmt = (d: string) =>
+  /^\d{4}-\d{2}/.test(d) ? formatMonthYear(d) : d;
+// With no start date, render just the end label (used by Education).
+const dateLabel = entry.start
+  ? `${fmt(entry.start)} – ${fmt(entry.end)}`
+  : fmt(entry.end);
 ---
 
 <article class="xp glass">
@@ -17,7 +24,7 @@ const fmt = (d: string) => (d === "Present" ? "Present" : formatMonthYear(d));
         {entry.org}{entry.location && <span> · {entry.location}</span>}
       </p>
     </div>
-    <time class="xp-dates">{fmt(entry.start)} – {fmt(entry.end)}</time>
+    <time class="xp-dates">{dateLabel}</time>
   </header>
   <ul class="xp-bullets">
     {entry.bullets.map((b) => <li>{b}</li>)}
@@ -27,7 +34,7 @@ const fmt = (d: string) => (d === "Present" ? "Present" : formatMonthYear(d));
 <style>
   .xp {
     padding: var(--s-5);
-    border-radius: var(--r-md);
+    border-radius: var(--r-card);
   }
   .xp-head {
     display: flex;

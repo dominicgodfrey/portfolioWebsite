@@ -1,10 +1,10 @@
-/** Placeholder certifications + awards. Replace values, keep the shape. */
+/** Certifications + awards. Set `date` to "" for an in-progress certification. */
 
 export interface Certification {
   id: string;
   title: string;
   issuer: string;
-  date: string; // YYYY-MM
+  date: string; // YYYY-MM, or "" if in progress
   credentialUrl?: string;
 }
 
@@ -17,33 +17,36 @@ export interface Award {
 
 export const certifications: Certification[] = [
   {
-    id: "aws-saa",
-    title: "AWS Certified Solutions Architect – Associate",
-    issuer: "Amazon Web Services",
-    date: "2025-11",
-    credentialUrl: "https://www.credly.com/",
+    id: "gca-querying-data",
+    title: "Querying Data",
+    issuer: "Intel + Global Career Accelerator",
+    date: "",
   },
   {
-    id: "gcp-pca",
-    title: "Professional Cloud Architect",
-    issuer: "Google Cloud",
-    date: "2025-06",
-    credentialUrl: "https://www.credential.net/",
+    id: "gca-ai-professional-skills",
+    title: "AI Professional Skills",
+    issuer: "OpenAI + Global Career Accelerator",
+    date: "",
   },
   {
-    id: "ckad",
-    title: "Certified Kubernetes Application Developer",
-    issuer: "The Linux Foundation",
-    date: "2024-09",
-    credentialUrl: "https://www.cncf.io/certification/ckad/",
+    id: "gca-python-data",
+    title: "Python & Data",
+    issuer: "Recording Academy (Grammy Awards) + Global Career Accelerator",
+    date: "",
+  },
+  {
+    id: "gca-intercultural-skills",
+    title: "Intercultural Skills",
+    issuer: "UNESCO + Global Career Accelerator",
+    date: "",
   },
 ];
 
 export const awards: Award[] = [
   {
-    id: "hackathon-2025",
-    title: "1st Place — Best Use of AI",
-    context: "RegionalHacks 2025",
-    date: "2025-10",
+    id: "deishacks-2026",
+    title: "Overall Grand Prize",
+    context: "DeisHacks 2026",
+    date: "2026-01",
   },
 ];

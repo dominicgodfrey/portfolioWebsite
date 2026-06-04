@@ -47,7 +47,11 @@
     inset -2.5px -3px 6px rgba(120, 132, 184, 0.38),
     inset 0 0 0 1px rgba(255, 255, 255, 0.25);
 
-  /* --- Radius scale (large, Samsung-edge feel) ---------------------------- */
+  /* --- Radius scale ------------------------------------------------------- */
+  /* Card/panel/nav surfaces use --r-card: a near-sharp "hair" radius so corners
+     converge to a crisp point while the glass bevel still renders cleanly.
+     Small controls (buttons, chips, social, badges) keep the rounded scale. */
+  --r-card: 3px;
   --r-sm: 14px;
   --r-md: 22px;
   --r-lg: 30px;
