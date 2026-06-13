@@ -2,7 +2,7 @@
 import "@/styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import Nav from "@/components/Nav.astro";
-import GridBackground from "@/components/react/GridBackground.tsx";
+import PixelVaporwaveBackground from "@/components/react/PixelVaporwaveBackground.tsx";
 
 interface Props {
   title?: string;
@@ -66,11 +66,11 @@ const {
       </filter>
     </svg>
 
-    <!-- WebGL grid background island. Hydrates when idle so it never blocks
-         first paint; falls back to the body's static gradient. transition:persist
-         keeps this exact node (its live WebGL context + animation clock) across
-         page navigations, so the grid never reloads/resets. -->
-    <GridBackground client:idle transition:persist="grid-background" />
+    <!-- WebGL "digital vaporwave" background island. Hydrates when idle so it
+         never blocks first paint. transition:persist keeps this exact node (its
+         live WebGL context + animation clock) across page navigations, so the
+         field never reloads/resets. -->
+    <PixelVaporwaveBackground client:idle transition:persist="grid-background" />
 
     <Nav />
 
