@@ -36,7 +36,7 @@ export const technicalExperience: ExperienceEntry[] = [
     org: "Community Day Center of Waltham",
     location: "Waltham, MA",
     start: "2026-01",
-    end: "2026-03",
+    end: "2026-02",
     bullets: [
       'Won the Overall Grand Prize at DeisHacks, a 48-hour social impact hackathon, by architecting a "privacy-first" data infrastructure for the Community Day Center of Waltham (CDCW).',
       "Engineered a contactless logging system using pseudo-anonymous NFC cards and mobile devices to replace fragmented paper logs, enabling real-time service tracking for meals, laundry, and clothing.",
