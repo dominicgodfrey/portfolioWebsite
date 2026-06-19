@@ -11,4 +11,6 @@ export const coursework: string[] = [
   "Discrete Mathematics",
   "Probability and Statistics",
   "Web Development",
+  "Relational Databases (SQL)",
+  "Mobile App Development",
 ];

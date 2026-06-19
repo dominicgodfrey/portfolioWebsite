@@ -85,6 +85,20 @@ img {
   border: 1px solid var(--glass-border);
   border-radius: var(--r-card);
   box-shadow: var(--glass-shadow), var(--glass-inset);
+  transition:
+    transform var(--dur-med) var(--ease-out),
+    border-color var(--dur-med) var(--ease-out);
+}
+
+/* Subtle hover lift shared by every glass content box (the effect the project
+   cards already had). Excluded — via zero-specificity :where() — are surfaces
+   where a lift would be wrong: the fixed nav, the interactive/sticky map, the
+   modal lightbox, and the hero (its reveal animation owns transform). Elements
+   with their own :hover (cards, thumbnails, social icons) keep it, since this
+   selector stays at .glass:hover specificity. */
+.glass:not(:where(.nav, .map-wrap, .lightbox-panel, .hero-card)):hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 247, 0.4);
 }
 
 /* Live background refraction (warps the grid behind the panel). Scoped to the
