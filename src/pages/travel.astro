@@ -10,19 +10,23 @@ import { photos } from "@/data/photos";
   <div class="page">
     <header class="page-head reveal">
       <h1>On the map</h1>
-      <p class="lede">
-        {photos.length} photos across {visitedCountries.length} countries. Click anywhere
-        on the map to jump to the nearest shot, click a pin, or pick a photo from
-        the gallery.
-      </p>
     </header>
 
     <section class="travel-layout section">
       <div class="map-wrap glass">
         <TravelMap client:only="react" />
       </div>
-      <div class="gallery-wrap">
-        <PhotoGallery client:only="react" />
+      <div class="gallery-col">
+        <div class="travel-intro glass">
+          <p>
+            {photos.length} photos across {visitedCountries.length} countries. Click
+            anywhere on the map to jump to the nearest shot, click a pin, or pick a
+            photo from the gallery.
+          </p>
+        </div>
+        <div class="gallery-wrap">
+          <PhotoGallery client:only="react" />
+        </div>
       </div>
     </section>
   </div>
@@ -41,10 +45,8 @@ import { photos } from "@/data/photos";
   .page-head h1 {
     font-size: var(--fs-display);
     margin: 0.3rem 0 0.6rem;
-  }
-  .lede {
-    color: var(--c-text-muted);
-    max-width: 56ch;
+    /* Pearl halo so the heading reads against the dark background. */
+    text-shadow: var(--text-glow);
   }
 
   .travel-layout {
@@ -52,6 +54,22 @@ import { photos } from "@/data/photos";
     grid-template-columns: 1.3fr 1fr;
     gap: var(--s-5);
     align-items: start;
+  }
+
+  /* Right column: glass intro box stacked above the photo gallery. Both columns
+     start at the same grid row, so the box top lines up with the map top. */
+  .gallery-col {
+    display: grid;
+    gap: var(--s-5);
+    align-content: start;
+  }
+  .travel-intro {
+    padding: var(--s-5);
+    border-radius: var(--r-card);
+  }
+  .travel-intro p {
+    color: var(--c-text-muted);
+    margin: 0;
   }
   .map-wrap {
     height: clamp(440px, 72vh, 760px);

@@ -10,7 +10,18 @@
   --c-surface: #ffffff; /* elevated solid surface (popups, controls) */
   --c-surface-2: #e7e7f1; /* secondary surface (chips, insets) */
   --c-text: #1b1d2e; /* dark slate primary text */
-  --c-text-muted: #5b6076; /* muted secondary text */
+  --c-text-muted: #3d4259; /* muted secondary text (darkened for contrast on
+                              light glass over the dark vaporwave field) */
+
+  /* Pearl halo for text sitting directly on the dark animated background — a
+     stacked light glow that outlines the glyphs so dark text stays legible.
+     Stored as one value so headings, ledes, and page text apply it uniformly. */
+  --text-glow:
+    0 0 26px var(--c-base),
+    0 0 15px var(--c-base),
+    0 0 9px var(--c-base),
+    0 0 5px var(--c-base),
+    0 0 2px var(--c-base);
 
   /* Warm scheme: vibrant red + vibrant purple (names kept for minimal churn). */
   --c-cyan: #e11d48; /* accent 1 — vibrant red */

@@ -15,9 +15,6 @@ import { formatMonthYear } from "@/lib/format";
   <div class="page">
     <header class="page-head reveal">
       <h1>Resume</h1>
-      <p class="lede">
-        Experience, projects, and the rest of the picture.
-      </p>
     </header>
 
     <!-- 1. Technical Experience -->
@@ -150,15 +147,8 @@ import { formatMonthYear } from "@/lib/format";
   .page-head h1 {
     font-size: var(--fs-display);
     margin: 0.3rem 0 0.6rem;
-    /* Pearl halo lifts the heading off the busy grid lines behind it. */
-    text-shadow:
-      0 0 18px var(--c-base),
-      0 0 9px var(--c-base),
-      0 0 3px var(--c-base);
-  }
-  .lede {
-    color: var(--c-text-muted);
-    max-width: 52ch;
+    /* Pearl halo lifts the heading off the busy field behind it. */
+    text-shadow: var(--text-glow);
   }
 
   /* Section titles pop against the background grid: a soft pearl halo for
@@ -168,10 +158,7 @@ import { formatMonthYear } from "@/lib/format";
     font-size: var(--fs-h2);
     margin-bottom: var(--s-5);
     padding-left: 0.9rem;
-    text-shadow:
-      0 0 16px var(--c-base),
-      0 0 8px var(--c-base),
-      0 0 3px var(--c-base);
+    text-shadow: var(--text-glow);
   }
   .section-title::before {
     content: "";
