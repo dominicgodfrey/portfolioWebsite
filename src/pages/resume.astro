@@ -110,6 +110,7 @@ import { formatMonthYear } from "@/lib/format";
                 location: e.location,
                 start: e.start,
                 end: e.end,
+                logo: e.logo,
                 bullets: e.details ?? [],
               }}
             />
@@ -195,7 +196,9 @@ import { formatMonthYear } from "@/lib/format";
   }
   .row {
     display: flex;
-    align-items: center;
+    /* Top-align so the date/status lines up with the row title, matching the
+       experience cards. */
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--s-4);
     padding: var(--s-4) var(--s-5);

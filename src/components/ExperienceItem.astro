@@ -22,11 +22,23 @@ const linkLabel = entry.link
 
 <article class="xp glass">
   <header class="xp-head">
-    <div>
-      <h3 class="xp-role">{entry.role}</h3>
-      <p class="xp-org">
-        {entry.org}{entry.location && <span> · {entry.location}</span>}
-      </p>
+    <div class="xp-headline">
+      {
+        entry.logo && (
+          <img
+            class="xp-logo"
+            src={entry.logo}
+            alt={`${entry.org} logo`}
+            loading="lazy"
+          />
+        )
+      }
+      <div class="xp-titles">
+        <h3 class="xp-role">{entry.role}</h3>
+        <p class="xp-org">
+          {entry.org}{entry.location && <span> · {entry.location}</span>}
+        </p>
+      </div>
     </div>
     <div class="xp-meta">
       <time class="xp-dates">{dateLabel}</time>
@@ -57,9 +69,33 @@ const linkLabel = entry.link
   .xp-head {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    /* Top-align the two columns so the date/link line up with the job title,
+       independent of the logo height (baseline alignment is thrown off by the
+       logo tile participating in the header's baseline). */
+    align-items: flex-start;
     gap: var(--s-4);
     flex-wrap: wrap;
+  }
+  /* Logo + (title/company/location) sit in the top-left corner; the logo height
+     matches the text block and uses the same gap the header already uses. */
+  .xp-headline {
+    display: flex;
+    align-items: center;
+    gap: var(--s-4);
+    min-width: 0;
+  }
+  .xp-logo {
+    flex-shrink: 0;
+    width: auto;
+    height: 2.9rem;
+    max-width: 92px;
+    /* White tile frames every logo uniformly — clean behind transparent marks
+       and a tidy badge around ones with their own colored backdrop. */
+    object-fit: contain;
+    background: #fff;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
   }
   .xp-role {
     font-size: var(--fs-h3);

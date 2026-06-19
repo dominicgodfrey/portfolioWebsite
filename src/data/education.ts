@@ -7,6 +7,8 @@ export interface EducationEntry {
   location?: string;
   start: string; // YYYY-MM (or "" for a single-label date)
   end: string; // YYYY-MM or a free-form label (e.g. "Expected Graduation Spring 2027")
+  /** Optional school logo (path under /public), shown left of the degree. */
+  logo?: string;
   details?: string[];
 }
 
@@ -18,6 +20,7 @@ export const education: EducationEntry[] = [
     location: "Waltham, MA",
     start: "",
     end: "Expected Graduation Spring 2027",
+    logo: "/images/logos/brandeis.png",
     details: [
       "Dean's List Scholar",
       "Sigma Alpha Mu — Treasurer",

@@ -13,6 +13,8 @@ export interface ExperienceEntry {
   end: string; // YYYY-MM or "Present"
   /** Optional org/site link, rendered under the date. */
   link?: string;
+  /** Optional logo image (path under /public), shown left of the title. */
+  logo?: string;
   bullets: string[];
 }
 
@@ -25,6 +27,7 @@ export const technicalExperience: ExperienceEntry[] = [
     start: "2026-04",
     end: "Present",
     link: "https://thinkneuro.org/",
+    logo: "/images/logos/thinkneuro.webp",
     bullets: [
       "Built an application screening tool integrating LLM and deterministic evaluation to assist in candidate review — designing a review interface that surfaced actionable signal from unstructured applicant data.",
       "Engineered an end-to-end certificate automation platform (Flask, PostgreSQL, Render) with auth, configurable preset management, and bulk generation/sending.",
@@ -41,6 +44,7 @@ export const technicalExperience: ExperienceEntry[] = [
     start: "2026-01",
     end: "2026-02",
     link: "https://www.communitydaycenter.org/",
+    logo: "/images/logos/community-day-center.webp",
     bullets: [
       'Won the Overall Grand Prize at DeisHacks, a 48-hour social impact hackathon, by architecting a "privacy-first" data infrastructure for the Community Day Center of Waltham (CDCW).',
       "Engineered a contactless logging system using pseudo-anonymous NFC cards and mobile devices to replace fragmented paper logs, enabling real-time service tracking for meals, laundry, and clothing.",
@@ -58,6 +62,7 @@ export const technicalExperience: ExperienceEntry[] = [
     start: "2025-10",
     end: "2026-01",
     link: "https://thebealhouse.com/",
+    logo: "/images/logos/beal-house.png",
     bullets: [
       "Architected a full-stack hospitality management system for The Beal House, integrating WordPress/MotoPress with a custom Google Apps Script + Google Sheets backend to centralize property operations.",
       "Engineered a multi-channel synchronization engine using API integrations to harmonize bookings across a proprietary website, Airbnb, Booking.com, and other OTAs to eliminate overbooking risks.",
@@ -77,6 +82,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     start: "2021-02",
     end: "2025-08",
     link: "https://junbishop.com/",
+    logo: "/images/logos/junbi.png",
     bullets: [
       "Interviewed candidates, trained and supervised employees.",
       "Counted cash receipts and reconciled them with the general ledger.",
@@ -94,6 +100,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     start: "2023-11",
     end: "2024-12",
     link: "https://sam.org/",
+    logo: "/images/logos/sigma-alpha-mu.png",
     bullets: [
       "Reduced chapter debt by 41% without increasing individual member financial responsibility.",
       "Removed new-member payment, increasing enrollment by 80% compared to the previous year.",
@@ -108,6 +115,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     start: "2022-09",
     end: "2024-12",
     link: "https://www.brandeis.edu/admissions/",
+    logo: "/images/logos/brandeis.png",
     bullets: [
       "Interviewed prospective domestic and international students for admission.",
       "Guided campus tours of 5–40 visitors.",
@@ -124,6 +132,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     location: "Hightstown, NJ",
     start: "2024-05",
     end: "2024-08",
+    logo: "/images/logos/vans.png",
     bullets: [
       "Led store sales in multiple KPIs during all months of employment.",
       "Opened the store and set up displays.",
@@ -151,6 +160,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     location: "Remote",
     start: "2018-09",
     end: "2022-01",
+    logo: "/images/logos/stony-brook.png",
     bullets: [
       "Transcribed and edited publications for a SUNY Stony Brook professor.",
       "Prepared layout and design of pages and covers.",
