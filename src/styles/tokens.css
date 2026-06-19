@@ -35,16 +35,16 @@
      left) + inset shadow (bottom-right) to read as a rounded, raised bezel. */
   --glass-fill: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.62),
-    rgba(255, 255, 255, 0.34)
+    rgba(255, 255, 255, 0.84),
+    rgba(255, 255, 255, 0.7)
   );
   --glass-fill-strong: linear-gradient(
     160deg,
-    rgba(255, 255, 255, 0.82),
-    rgba(255, 255, 255, 0.55)
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.74)
   );
-  --glass-bg: rgba(255, 255, 255, 0.5); /* flat translucent fill (buttons) */
-  --glass-bg-strong: rgba(255, 255, 255, 0.66);
+  --glass-bg: rgba(255, 255, 255, 0.64); /* flat translucent fill (buttons) */
+  --glass-bg-strong: rgba(255, 255, 255, 0.8);
   --glass-border: rgba(255, 255, 255, 0.7);
   /* Refract the backdrop (url) then a light blur/lift — low blur keeps the
      warped grid readable through the glass, which sells the effect. */
