@@ -11,6 +11,8 @@ export interface ExperienceEntry {
   location?: string;
   start: string; // YYYY-MM (or "" for a single-label date)
   end: string; // YYYY-MM or "Present"
+  /** Optional org/site link, rendered under the date. */
+  link?: string;
   bullets: string[];
 }
 
@@ -22,6 +24,7 @@ export const technicalExperience: ExperienceEntry[] = [
     location: "Sacramento, CA",
     start: "2026-04",
     end: "Present",
+    link: "https://thinkneuro.org/",
     bullets: [
       "Built an application screening tool integrating LLM and deterministic evaluation to assist in candidate review — designing a review interface that surfaced actionable signal from unstructured applicant data.",
       "Engineered an end-to-end certificate automation platform (Flask, PostgreSQL, Render) with auth, configurable preset management, and bulk generation/sending.",
@@ -37,6 +40,7 @@ export const technicalExperience: ExperienceEntry[] = [
     location: "Waltham, MA",
     start: "2026-01",
     end: "2026-02",
+    link: "https://www.communitydaycenter.org/",
     bullets: [
       'Won the Overall Grand Prize at DeisHacks, a 48-hour social impact hackathon, by architecting a "privacy-first" data infrastructure for the Community Day Center of Waltham (CDCW).',
       "Engineered a contactless logging system using pseudo-anonymous NFC cards and mobile devices to replace fragmented paper logs, enabling real-time service tracking for meals, laundry, and clothing.",
@@ -53,6 +57,7 @@ export const technicalExperience: ExperienceEntry[] = [
     location: "Littleton, NH",
     start: "2025-10",
     end: "2026-01",
+    link: "https://thebealhouse.com/",
     bullets: [
       "Architected a full-stack hospitality management system for The Beal House, integrating WordPress/MotoPress with a custom Google Apps Script + Google Sheets backend to centralize property operations.",
       "Engineered a multi-channel synchronization engine using API integrations to harmonize bookings across a proprietary website, Airbnb, Booking.com, and other OTAs to eliminate overbooking risks.",
@@ -71,6 +76,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     location: "Princeton, NJ",
     start: "2021-02",
     end: "2025-08",
+    link: "https://junbishop.com/",
     bullets: [
       "Interviewed candidates, trained and supervised employees.",
       "Counted cash receipts and reconciled them with the general ledger.",
@@ -87,6 +93,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     location: "Waltham, MA",
     start: "2023-11",
     end: "2024-12",
+    link: "https://sam.org/",
     bullets: [
       "Reduced chapter debt by 41% without increasing individual member financial responsibility.",
       "Removed new-member payment, increasing enrollment by 80% compared to the previous year.",
@@ -100,6 +107,7 @@ export const nonTechnicalExperience: ExperienceEntry[] = [
     location: "Waltham, MA",
     start: "2022-09",
     end: "2024-12",
+    link: "https://www.brandeis.edu/admissions/",
     bullets: [
       "Interviewed prospective domestic and international students for admission.",
       "Guided campus tours of 5–40 visitors.",

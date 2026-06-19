@@ -14,6 +14,10 @@ const fmt = (d: string) =>
 const dateLabel = entry.start
   ? `${fmt(entry.start)} – ${fmt(entry.end)}`
   : fmt(entry.end);
+// Show the bare domain (+ path) as the link label; href keeps the full URL.
+const linkLabel = entry.link
+  ? entry.link.replace(/^https?:\/\//, "").replace(/^www\./, "").replace(/\/$/, "")
+  : "";
 ---
 
 <article class="xp glass">
@@ -24,7 +28,21 @@ const dateLabel = entry.start
         {entry.org}{entry.location && <span> · {entry.location}</span>}
       </p>
     </div>
-    <time class="xp-dates">{dateLabel}</time>
+    <div class="xp-meta">
+      <time class="xp-dates">{dateLabel}</time>
+      {
+        entry.link && (
+          <a
+            class="xp-link"
+            href={entry.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {linkLabel} ↗
+          </a>
+        )
+      }
+    </div>
   </header>
   <ul class="xp-bullets">
     {entry.bullets.map((b) => <li>{b}</li>)}
@@ -51,10 +69,26 @@ const dateLabel = entry.start
     font-size: var(--fs-small);
     margin-top: 0.15rem;
   }
+  .xp-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    text-align: right;
+  }
   .xp-dates {
     color: var(--c-text-muted);
     font-size: var(--fs-small);
     white-space: nowrap;
+  }
+  .xp-link {
+    color: var(--c-cyan);
+    font-size: var(--fs-small);
+    white-space: nowrap;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .xp-link:hover {
+    color: var(--c-violet);
   }
   .xp-bullets {
     margin: var(--s-3) 0 0;
