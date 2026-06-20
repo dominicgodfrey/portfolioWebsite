@@ -72,6 +72,18 @@ const worked = project.inProgress
         )
       }
       {
+        project.pdfUrl && (
+          <a
+            class="btn"
+            href={project.pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View demo
+          </a>
+        )
+      }
+      {
         project.devpostUrl && (
           <a
             class="btn"

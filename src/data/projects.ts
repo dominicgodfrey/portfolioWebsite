@@ -30,6 +30,8 @@ export interface Project {
   liveUrl?: string;
   /** A video walkthrough (YouTube/Vimeo/MP4) for when a live demo isn't viable. */
   videoUrl?: string;
+  /** A static PDF demo/preview (in /public) for when a live or video demo isn't viable. */
+  pdfUrl?: string;
   /** A Devpost project page. */
   devpostUrl?: string;
   /** Cover image in /public/images. */
@@ -71,6 +73,16 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/dominicgodfrey/riplet",
     liveUrl: "https://servsafe.netlify.app",
     featured: true,
+  },
+  {
+    id: "relationship-wrapped",
+    title: "relationshipWrapped",
+    description:
+      "Turns an exported SMS history with one person into a polished, editorial \"year-in-review\" dashboard — message counts, monthly trends, weekday/hour heatmaps, and emoji and phrase tallies (down to \"I love you\" counts). A local Python + pandas pipeline renders everything into a single self-contained HTML file with embedded fonts, CSS, and data, so the conversation never leaves your machine.",
+    techStack: ["Python", "pandas", "HTML", "CSS", "JavaScript"],
+    date: "2026-05",
+    githubUrl: "https://github.com/dominicgodfrey/relationshipWrapped",
+    pdfUrl: "/relationship-wrapped-preview.pdf",
   },
   {
     id: "basketeer",
