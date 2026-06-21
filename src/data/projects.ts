@@ -90,7 +90,7 @@ export const projects: Project[] = [
     description:
       "A digital photo album with a vintage, physical-book aesthetic — a leather cover, a handwritten opening note, and two-page photo spreads you flip through with arrow keys or swipe gestures. It closes with a gallery where every photo can be viewed in a lightbox and downloaded individually or as a zip. Entirely config-driven: drop in photos, list them with captions in a single config.js, and customize the text — no build step or framework.",
     techStack: ["JavaScript", "CSS", "HTML", "ES Modules", "Netlify"],
-    date: "2026-05",
+    date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/photoBook",
     liveUrl: "https://photobookdemo.netlify.app",
   },
