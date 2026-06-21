@@ -161,15 +161,25 @@ import { formatMonthYear } from "@/lib/format";
     padding-left: 0.9rem;
     text-shadow: var(--text-glow);
   }
+  /* The marker beside each header is frosted glass to match the cards, rather
+     than the neon accent gradient. Slightly wider than the old 4px bar so the
+     fill + bevel read; the heavy --glass-inset is tuned for large boxes, so a
+     lighter bevel is used at this scale. */
   .section-title::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0.14em;
     bottom: 0.14em;
-    width: 4px;
+    width: 5px;
     border-radius: var(--r-pill);
-    background: var(--grad-accent);
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    box-shadow:
+      inset 1px 1px 1.5px rgba(255, 255, 255, 0.9),
+      inset -1px -1px 1.5px rgba(120, 132, 184, 0.3);
   }
 
   /* Stacked full-width cards (experience). */
