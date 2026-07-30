@@ -11,6 +11,7 @@ export const visitedCountries: string[] = Array.from(
     "CUB", // Cuba
     "FIN", // Finland
     "FRA", // France
+    "GRC", // Greece
     "HKG", // Hong Kong
     "MEX", // Mexico
     "NLD", // Netherlands
