@@ -1,6 +1,8 @@
 /**
  * Skills, grouped by category. Mirrors the LaTeX resume's Skills section, with a
- * few extras the resume omits for space (Java, HTML/CSS).
+ * few extras the resume omits for space (Java, HTML/CSS). The databases sit
+ * under Tools here rather than Frameworks — the resume keeps them in Frameworks
+ * because regrouping them wraps a line and costs it the one-page fit.
  */
 
 export interface SkillGroup {
