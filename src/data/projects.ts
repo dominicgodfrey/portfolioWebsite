@@ -44,7 +44,7 @@ export const projects: Project[] = [
     id: "felton-cards",
     title: "Felton Cards",
     description:
-      "DeisHacks 2026 winner. An NFC-based guest-management system for a nonprofit day shelter: staff tap a guest's ID card to pull up their profile, log services (showers, laundry, meals, hygiene kits), and deduct clothing purchases from a per-guest \"Felton Bucks\" budget. Offline-first — actions queue locally and sync when connectivity returns — over a zero-infrastructure Google Sheets backend.",
+      "Tasked with designing and implementing a system for a nonprofit day shelter that was operating on volunteer memory and scattered notes for data critical for proper management and funding. Led a team of 5 to the overall grand prize, our solution was an NFC-based guest-management system where staff tap a guest's ID card to pull up their profile, log services (showers, laundry, meals, hygiene kits), and deduct clothing purchases from a preexisting per-guest \"Felton Bucks\" budget that mimics real currency. Designed to be offline-first, with a zero-infrastructure Google Sheets backend chosen specifically for easy use by older/technologically uninitiated volunteers.",
     techStack: [
       "React Native",
       "Expo",
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     id: "korlearn",
     title: "korLearn",
     description:
-      "A Korean study tool built around progressive-learning practice across vocabulary, grammar, and conversation. A Go backend serves scheduled review sessions to a TypeScript/React client, while a LangChain pipeline over locally run Ollama models generates unlimited drills. Speech-to-text via OpenWhispr turns it into a conversation partner that never runs out of patience — and, because every model runs on-device, never bills per turn.",
+      "I am half Korean, everyone in my family speaks but me which is quite embarrassing. This is my solution, a study tool built around progressive-learning practices across vocabulary, grammar, and conversation. GoLang backend serves a TypeScript/React client for gamified learning/review. LangChain operating on local models via Ollama paired with OpenWhispr helps me practice in real-time conversation, only using grammar and vocab I have learned so far.",
     techStack: ["GoLang", "TypeScript", "React", "LangChain", "Ollama", "OpenWhispr"],
     inProgress: true,
     startDate: "2026-06",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
     id: "wheriz",
     title: "Wheriz",
     description:
-      "Where-Was-I-When: an ambient item-finding system that suggests where you misplaced something by reasoning over three streams of evidence — passive WiFi-derived dwell data, fallible human memory, and learned per-user habits. It keeps a probability distribution per item and gets visibly smarter with every confirmed find. The sensor-agnostic reasoning layer is the product; the sensing layer is a replaceable input.",
+      "\"Where-Was-I-When\" or Wheriz was a project I developed after losing my keys for the last time (with any luck). Using passive WiFi-derived dwell data, fallible human memory (mine), and learned per-user habits, Wheriz suggests where you misplaced something. It keeps a probability distribution per item and gets smarter with every confirmed find.",
     techStack: ["Python", "FastAPI", "Ollama", "SQLite", "Jinja2"],
     inProgress: true,
     startDate: "2026-05",
@@ -86,7 +86,7 @@ export const projects: Project[] = [
     id: "riplet",
     title: "Riplet",
     description:
-      "A study app built around a two-stage multiple-choice → short-answer quiz flow with self-grading, mastery tracking, and checkpoint reviews. In-app subject creation/editing, JSON import/export for sharing sets, per-subject localStorage persistence, and an installable PWA. Now in production at servsafe.netlify.app with a small but growing user base, shipping bundled sets like a 306-term ServSafe Manager deck.",
+      "A study app built around a two-stage multiple-choice → short-answer quiz flow with self-grading, mastery tracking, and checkpoint reviews. In-app subject creation/editing, JSON import/export for sharing sets with other users. Now in production at servsafe.netlify.app with a small but growing user base, with Intro to Psychology (I got a 100% on this final) and ServSafe Manager pre-made sets.",
     techStack: ["React", "Vite", "JavaScript", "PWA", "Netlify"],
     startDate: "2026-04",
     date: "2026-05",
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     id: "relationship-wrapped",
     title: "relationshipWrapped",
     description:
-      "Turns an exported SMS history with one person into a polished, editorial \"year-in-review\" dashboard — message counts, monthly trends, weekday/hour heatmaps, and emoji and phrase tallies (down to \"I love you\" counts). A local Python + pandas pipeline renders everything into a single self-contained HTML file with embedded fonts, CSS, and data, so the conversation never leaves your machine.",
+      "I wanted to show my girlfriend that I had said goodnight and goodmorning more consistently than she had (I was right), so I set up this pipeline that turns exported message history into a polished, editorial \"year-in-review\" dashboard. Comes complete with message counts, monthly trends, weekday/hour heatmaps, and emoji and phrase tallies. Set up with a local Python + pandas pipeline that renders everything into a single HTML file with embedded fonts, CSS, and data so that no message ever leaves your machine.",
     techStack: ["Python", "pandas", "HTML", "CSS", "JavaScript"],
     date: "2026-05",
     githubUrl: "https://github.com/dominicgodfrey/relationshipWrapped",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     id: "photobook",
     title: "photoBook",
     description:
-      "A digital photo album with a vintage, physical-book aesthetic — a leather cover, a handwritten opening note, and two-page photo spreads you flip through with arrow keys or swipe gestures. It closes with a gallery where every photo can be viewed in a lightbox and downloaded individually or as a zip. Entirely config-driven: drop in photos, list them with captions in a single config.js, and customize the text — no build step or framework.",
+      "Made to my father's tastes as I used this to make a photobook for Father's Day. The template is a digital photo album with a vintage/physical book aesthetic (leather cover and more). It closes with a gallery where every photo can be viewed and downloaded individually or as a zip. Entirely config-driven so for use you just need to drop in photos, list them with captions in a single config.js, and customize the text.",
     techStack: ["JavaScript", "CSS", "HTML", "ES Modules", "Netlify"],
     date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/photoBook",
@@ -118,7 +118,7 @@ export const projects: Project[] = [
     id: "portfolio",
     title: "This Portfolio Website",
     description:
-      "A glassmorphism + vaporwave portfolio built on Astro with React islands — a WebGL grid background, an interactive travel map, and a content-driven project showcase. Near-zero JS shipped by default.",
+      "A glassmorphism + vaporwave portfolio built on Astro with React islands. Designed to be aesthetically pleasing and snappy, it lists my resume + places I have traveled and is likely to change at some point when I get bored of the design (again). Click live demo to see what it looks like.",
     techStack: ["Astro", "React", "Three.js", "MapLibre GL", "TypeScript"],
     date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/portfolioWebsite",
