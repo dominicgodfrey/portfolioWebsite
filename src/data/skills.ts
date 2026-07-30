@@ -1,4 +1,7 @@
-/** Placeholder skills, grouped by category. Replace with your real stack. */
+/**
+ * Skills, grouped by category. Mirrors the LaTeX resume's Skills section, with a
+ * few extras the resume omits for space (Java, HTML/CSS).
+ */
 
 export interface SkillGroup {
   category: string;
@@ -8,14 +11,53 @@ export interface SkillGroup {
 export const skills: SkillGroup[] = [
   {
     category: "Languages",
-    items: ["TypeScript", "JavaScript", "Python", "Java", "C", "SQL", "HTML/CSS"],
+    items: [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "GoLang",
+      "Java",
+      "SQL",
+      "Google Apps Script",
+      "HTML/CSS",
+    ],
   },
   {
     category: "Frameworks & Libraries",
-    items: ["React", "Astro", "Node.js", "Express", "FastAPI", "Three.js"],
+    items: [
+      "React",
+      "Node.js",
+      "Express",
+      "Django",
+      "FastAPI",
+      "PyTorch",
+      "pandas",
+      "Matplotlib",
+      "Seaborn",
+      "LangChain",
+      "Ollama",
+    ],
   },
   {
     category: "Tools & Platforms",
-    items: ["Git", "Docker", "AWS", "PostgreSQL", "MongoDB", "Linux", "Figma"],
+    items: [
+      "Git/GitHub",
+      "PostgreSQL",
+      "MongoDB",
+      "Vercel",
+      "Stripe API",
+      "Shopify",
+      "Claude/OpenAI/Gemini APIs",
+      "OpenWhispr",
+    ],
+  },
+  {
+    category: "Soft Skills",
+    items: [
+      "Team Leadership",
+      "Stakeholder Communication",
+      "Public Speaking",
+      "Operations Management",
+    ],
   },
 ];
