@@ -62,12 +62,21 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "korlearn",
+    title: "korLearn",
+    description:
+      "A Korean study tool built around progressive-learning practice across vocabulary, grammar, and conversation. A Go backend serves scheduled review sessions to a TypeScript/React client, while a LangChain pipeline over locally run Ollama models generates unlimited drills. Speech-to-text via OpenWhispr turns it into a conversation partner that never runs out of patience — and, because every model runs on-device, never bills per turn.",
+    techStack: ["GoLang", "TypeScript", "React", "LangChain", "Ollama", "OpenWhispr"],
+    inProgress: true,
+    startDate: "2026-06",
+    date: "2026-07",
+  },
+  {
     id: "riplet",
     title: "Riplet",
     description:
       "A study app built around a two-stage multiple-choice → short-answer quiz flow with self-grading, mastery tracking, and checkpoint reviews. In-app subject creation/editing, JSON import/export for sharing sets, per-subject localStorage persistence, and an installable PWA. Now in production at servsafe.netlify.app with a small but growing user base, shipping bundled sets like a 306-term ServSafe Manager deck.",
     techStack: ["React", "Vite", "JavaScript", "PWA", "Netlify"],
-    badge: "In production",
     startDate: "2026-04",
     date: "2026-05",
     githubUrl: "https://github.com/dominicgodfrey/riplet",
@@ -93,17 +102,6 @@ export const projects: Project[] = [
     date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/photoBook",
     liveUrl: "https://photobookdemo.netlify.app",
-  },
-  {
-    id: "basketeer",
-    title: "Basketeer",
-    description:
-      "An NBA scouting agent that answers open-ended basketball questions by dynamically composing a small set of primitives over a unified player/season/contract dataset — player comp finder, team-fit search, and free-form analytical queries. Built to demonstrate production agentic-systems patterns while staying cheap to run.",
-    techStack: ["Python", "FastAPI", "Pydantic", "Gemini", "Vector Search"],
-    inProgress: true,
-    startDate: "2026-04",
-    date: "2026-05",
-    githubUrl: "https://github.com/dominicgodfrey/basketeer",
   },
   {
     id: "wheriz",
