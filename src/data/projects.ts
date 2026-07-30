@@ -72,6 +72,17 @@ export const projects: Project[] = [
     date: "2026-07",
   },
   {
+    id: "wheriz",
+    title: "Wheriz",
+    description:
+      "Where-Was-I-When: an ambient item-finding system that suggests where you misplaced something by reasoning over three streams of evidence — passive WiFi-derived dwell data, fallible human memory, and learned per-user habits. It keeps a probability distribution per item and gets visibly smarter with every confirmed find. The sensor-agnostic reasoning layer is the product; the sensing layer is a replaceable input.",
+    techStack: ["Python", "FastAPI", "Ollama", "SQLite", "Jinja2"],
+    inProgress: true,
+    startDate: "2026-05",
+    date: "2026-06",
+    githubUrl: "https://github.com/dominicgodfrey/wheriz",
+  },
+  {
     id: "riplet",
     title: "Riplet",
     description:
@@ -102,17 +113,6 @@ export const projects: Project[] = [
     date: "2026-06",
     githubUrl: "https://github.com/dominicgodfrey/photoBook",
     liveUrl: "https://photobookdemo.netlify.app",
-  },
-  {
-    id: "wheriz",
-    title: "Wheriz",
-    description:
-      "Where-Was-I-When: an ambient item-finding system that suggests where you misplaced something by reasoning over three streams of evidence — passive WiFi-derived dwell data, fallible human memory, and learned per-user habits. It keeps a probability distribution per item and gets visibly smarter with every confirmed find. The sensor-agnostic reasoning layer is the product; the sensing layer is a replaceable input.",
-    techStack: ["Python", "FastAPI", "Ollama", "SQLite", "Jinja2"],
-    inProgress: true,
-    startDate: "2026-05",
-    date: "2026-06",
-    githubUrl: "https://github.com/dominicgodfrey/wheriz",
   },
   {
     id: "portfolio",
