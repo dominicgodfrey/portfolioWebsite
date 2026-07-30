@@ -4,6 +4,9 @@ import TravelMap from "@/components/react/TravelMap.tsx";
 import PhotoGallery from "@/components/react/PhotoGallery.tsx";
 import { visitedCountries } from "@/data/visited";
 import { photos } from "@/data/photos";
+
+// Not every visited country has a photo yet, so count the two separately.
+const photographed = new Set(photos.map((p) => p.country)).size;
 ---
 
 <BaseLayout title="Travel · Dominic Sol Godfrey">
@@ -19,9 +22,9 @@ import { photos } from "@/data/photos";
       <div class="gallery-col">
         <div class="travel-intro glass">
           <p>
-            {photos.length} photos across {visitedCountries.length} countries. Click
-            anywhere on the map to jump to the nearest shot, click a pin, or pick a
-            photo from the gallery.
+            {photos.length} photos from {photographed} of the {visitedCountries.length}
+             countries I've been to. Click anywhere on the map to jump to the
+            nearest shot, click a pin, or pick a photo from the gallery.
           </p>
         </div>
         <div class="gallery-wrap">
@@ -139,26 +142,6 @@ import { photos } from "@/data/photos";
     height: 100%;
     object-fit: cover;
   }
-  .thumb-meta {
-    position: absolute;
-    inset: auto 0 0 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-    padding: 0.6rem;
-    text-align: left;
-    background: linear-gradient(transparent, rgba(5, 5, 12, 0.85));
-  }
-  .thumb-place {
-    font-size: var(--fs-small);
-    font-weight: 500;
-    color: var(--c-text);
-  }
-  .thumb-country {
-    font-size: 0.75rem;
-    color: var(--c-text-muted);
-  }
-
   /* Lightbox */
   .lightbox {
     position: fixed;
@@ -178,10 +161,14 @@ import { photos } from "@/data/photos";
     overflow: hidden;
     border-radius: var(--r-card);
   }
+  /* Shots come in portrait, landscape and square, so fit the whole frame here
+     rather than cropping every one of them to the thumbnail's 4:3. */
   .lightbox-panel img {
+    display: block;
     width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
+    max-height: 62vh;
+    object-fit: contain;
+    background: rgba(5, 5, 12, 0.5);
   }
   .lightbox-info {
     padding: var(--s-5);
@@ -193,10 +180,7 @@ import { photos } from "@/data/photos";
   .lightbox-country {
     font-size: var(--fs-small);
     color: var(--c-cyan);
-    margin: 0.2rem 0 0.6rem;
-  }
-  .lightbox-caption {
-    color: var(--c-text-muted);
+    margin: 0.2rem 0 0;
   }
   .lightbox-close {
     position: absolute;

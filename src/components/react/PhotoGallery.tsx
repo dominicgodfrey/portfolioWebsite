@@ -36,11 +36,14 @@ export default function PhotoGallery() {
               onClick={() => openPhoto(p.id)}
               aria-pressed={p.id === selected}
             >
-              <img src={p.src} alt={p.caption} loading="lazy" />
-              <span className="thumb-meta">
-                <span className="thumb-place">{p.place}</span>
-                <span className="thumb-country">{p.countryName}</span>
-              </span>
+              {/* The place is deliberately not drawn on the thumbnail — it's
+                  revealed in the lightbox. alt still carries it for screen
+                  readers, and names the button. */}
+              <img
+                src={p.src}
+                alt={`${p.place}, ${p.countryName}`}
+                loading="lazy"
+              />
             </button>
           </li>
         ))}
@@ -65,13 +68,16 @@ export default function PhotoGallery() {
             >
               <X size={18} />
             </button>
-            <img src={current.src} alt={current.caption} />
+            <img
+              src={current.src}
+              alt={`${current.place}, ${current.countryName}`}
+            />
             <div className="lightbox-info">
               <h3>{current.place}</h3>
               <p className="lightbox-country">
-                {current.countryName} · {formatFullDate(current.date)}
+                {current.countryName}
+                {current.date && ` · ${formatFullDate(current.date)}`}
               </p>
-              <p className="lightbox-caption">{current.caption}</p>
             </div>
           </div>
         </div>
