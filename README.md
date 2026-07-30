@@ -19,14 +19,15 @@ npm run preview  # serve the production build
 | --- | --- |
 | Projects (demo/github/tech/date) | `src/data/projects.ts` |
 | Certifications & awards | `src/data/certifications.ts` |
-| Photos + map pins (lat/lon/date/caption) | `src/data/photos.ts` |
+| Photos + map pins (lat/lon/place/date) | `src/data/photos.ts` |
 | Which countries are highlighted | `src/data/visited.ts` (ISO alpha-3) |
 | Social links | `src/components/SocialLinks.astro` |
 | Name / about / hero copy | `src/pages/index.astro` |
 | Colours, radii, fonts, spacing | `src/styles/tokens.css` (single source of truth) |
 
-Placeholder images live in `public/images/` — swap the SVGs for real photos
-(keep the same paths, or update `src` in the data files).
+Travel photos live in `public/images/travel/` (resized to 1600px on the long
+edge, JPEG q82). Remaining placeholder SVGs are in `public/images/` — swap them
+for real images and update `src` in the data files.
 
 ## The design system
 
@@ -48,7 +49,9 @@ these is what keeps the look tasteful rather than busy.
 - **Contact form** — set `WEB3FORMS_KEY` in
   `src/components/react/ContactForm.tsx` (free key at web3forms.com). Until then
   it falls back to a `mailto:` link. Update `CONTACT_EMAIL` too.
-- **Real photos** — drop images into `public/images/` and update `photos.ts`. A
-  future build-time EXIF step (e.g. `exifr`) can auto-fill `lat`/`lon`/`date`.
+- **Photo dates** — the current photos arrived with EXIF stripped, so `date` is
+  optional in `photos.ts` and omitted throughout. Fill it in per photo and the
+  lightbox picks it up. A build-time EXIF step (e.g. `exifr`) could auto-fill
+  `lat`/`lon`/`date` for future uploads that keep their metadata.
 - **Deploy** — any static host works (Vercel / Netlify / Cloudflare Pages).
   Update `site` in `astro.config.mjs` to the final domain.
