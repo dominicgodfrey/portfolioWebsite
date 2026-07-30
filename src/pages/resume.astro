@@ -48,7 +48,10 @@ import { formatMonthYear } from "@/lib/format";
                 {c.date ? (
                   <time datetime={c.date}>{formatMonthYear(c.date)}</time>
                 ) : (
-                  <span class="row-status">In progress</span>
+                  /* A verify link stands in for the date on a completed cert
+                     whose month isn't tracked — only the still-unfinished ones
+                     fall through to the status label. */
+                  !c.credentialUrl && <span class="row-status">In progress</span>
                 )}
                 {c.credentialUrl && (
                   <a href={c.credentialUrl} target="_blank" rel="noopener noreferrer">
@@ -70,6 +73,11 @@ import { formatMonthYear } from "@/lib/format";
               </div>
               <div class="row-meta">
                 <time datetime={a.date}>{formatMonthYear(a.date)}</time>
+                {a.devpostUrl && (
+                  <a href={a.devpostUrl} target="_blank" rel="noopener noreferrer">
+                    Devpost ↗
+                  </a>
+                )}
               </div>
             </li>
           ))

@@ -13,6 +13,8 @@ export interface Award {
   title: string;
   context: string;
   date: string; // YYYY-MM
+  /** Devpost (or equivalent) page backing up the award. */
+  devpostUrl?: string;
 }
 
 export const certifications: Certification[] = [
@@ -21,6 +23,8 @@ export const certifications: Certification[] = [
     title: "Querying Data",
     issuer: "Intel + Global Career Accelerator",
     date: "",
+    credentialUrl:
+      "https://www.credential.net/ff520051-3177-436e-b6c2-efdab2b5f7d3#acc.YwLBKJC3",
   },
   {
     id: "gca-ai-professional-skills",
@@ -48,5 +52,6 @@ export const awards: Award[] = [
     title: "Overall Grand Prize",
     context: "DeisHacks 2026",
     date: "2026-01",
+    devpostUrl: "https://devpost.com/software/felton-cards",
   },
 ];
