@@ -42,6 +42,7 @@ export const technicalExperience: ExperienceEntry[] = [
     start: "2026-06",
     end: "Present",
     link: "https://nuciferalabs.com",
+    logo: "/images/logos/nucifera.png",
     bullets: [
       "Founded and developed the Scryline product, enabling top eSports organizations to query competition data in natural language.",
       "Built with the Claude API on a deterministic-first pipeline that decomposes each query into structured JSON before analysis.",
