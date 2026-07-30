@@ -26,6 +26,9 @@ const photographed = new Set(photos.map((p) => p.country)).size;
              countries I've been to. Click anywhere on the map to jump to the
             nearest shot, click a pin, or pick a photo from the gallery.
           </p>
+          <p class="travel-note">
+            *Not an exhaustive list and I hope still growing
+          </p>
         </div>
         <div class="gallery-wrap">
           <PhotoGallery client:only="react" />
@@ -73,6 +76,13 @@ const photographed = new Set(photos.map((p) => p.country)).size;
   .travel-intro p {
     color: var(--c-text-muted);
     margin: 0;
+  }
+  /* Footnote to the count above, so it sits a step quieter than the intro.
+     Scoped through .travel-intro to outrank the `margin: 0` rule above. */
+  .travel-intro .travel-note {
+    font-size: var(--fs-small);
+    opacity: 0.75;
+    margin-top: var(--s-2);
   }
   .map-wrap {
     height: clamp(440px, 72vh, 760px);
