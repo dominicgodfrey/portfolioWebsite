@@ -65,8 +65,8 @@ export const projects: Project[] = [
     id: "korlearn",
     title: "korLearn",
     description:
-      "I am half Korean, everyone in my family speaks but me which is quite embarrassing. This is my solution, a study tool built around progressive-learning practices across vocabulary, grammar, and conversation. GoLang backend serves a TypeScript/React client for gamified learning/review. LangChain operating on local models via Ollama paired with OpenWhispr helps me practice in real-time conversation, only using grammar and vocab I have learned so far.",
-    techStack: ["GoLang", "TypeScript", "React", "LangChain", "Ollama", "OpenWhispr"],
+      "I am half Korean, everyone in my family speaks but me which is quite embarrassing. This is my solution, a study tool built around progressive-learning practices across vocabulary, grammar, and conversation. GoLang backend serves a TypeScript/React client for gamified learning/review. Models: (Kokoro/Whisper/Exaone) run locally to help me practice in real-time conversation, only using grammar and vocab I have learned so far.",
+    techStack: ["GoLang", "TypeScript", "React", "Ollama", "Kokoro", "Whisper", "Exaone"],
     inProgress: true,
     startDate: "2026-06",
     date: "2026-07",

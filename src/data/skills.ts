@@ -36,7 +36,6 @@ export const skills: SkillGroup[] = [
       "pandas",
       "Matplotlib",
       "Seaborn",
-      "LangChain",
       "Ollama",
     ],
   },
@@ -50,7 +49,6 @@ export const skills: SkillGroup[] = [
       "Stripe API",
       "Shopify",
       "Claude/OpenAI/Gemini APIs",
-      "OpenWhispr",
     ],
   },
   {
