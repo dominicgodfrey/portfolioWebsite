@@ -19,6 +19,13 @@ export interface Award {
 
 export const certifications: Certification[] = [
   {
+    id: "anthropic-claude-code-101",
+    title: "Claude Code 101",
+    issuer: "Anthropic Education",
+    date: "2026-06",
+    credentialUrl: "https://verify.skilljar.com/c/wzf2kjufpmah",
+  },
+  {
     id: "gca-querying-data",
     title: "Querying Data",
     issuer: "Intel + Global Career Accelerator",
